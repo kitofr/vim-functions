@@ -1,12 +1,12 @@
 "=============================================================================
-" File: format-xml.vim
-" Author: Kristoffer RoupÃ© <kitofr@gmail.com>
+" File: data-functions.vim
+" Author: Kristoffer Roupé <kitofr@gmail.com>
 " script type: plugin
 
-if &cp || (exists('g:loaded_xml_format') && g:loaded_xml_format)
+if &cp || (exists('g:loaded_data_functions') && g:loaded_data_functions)
   finish
 endif
-let g:loaded_xml_format = 1
+let g:loaded_data_functions = 1
 
 function! s:FormatXmlFunction()
   silent! set ft=xml
@@ -19,3 +19,11 @@ function! s:FormatXmlFunction()
 endfunction
 
 command! FormatXml call <SID>FormatXmlFunction()
+
+function! s:FormatJsonFunction()
+  set ft=javascript
+  silent! %s/,\"/,\r\"/g
+  silent! normal! gg
+end
+
+command! FormatJson call <SID>FormatJsonFunction()
