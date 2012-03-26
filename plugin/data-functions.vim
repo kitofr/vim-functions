@@ -24,6 +24,6 @@ function! s:FormatJsonFunction()
   set ft=javascript
   silent! %s/,\"/,\r\"/g
   silent! normal! gg
-end
+endfunction
 
 command! FormatJson call <SID>FormatJsonFunction()
